@@ -3,9 +3,7 @@ import SearchSidebar from "./components/SearchSidebar.vue";
 </script>
 
 <template>
-  <div id="app">
-    <SearchSidebar />
-  </div>
+  <SearchSidebar />
 </template>
 
 <style scoped></style>
