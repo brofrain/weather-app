@@ -2,7 +2,7 @@
 
 <template>
   <header>
-    <div class="flex items-center justify-between mx-20 my-5">
+    <div class="flex items-center justify-between my-5 m-36">
       <h1 class="text-customPurple text-2xl font-bold">Weather App</h1>
       <div class="flex rounded-xl p-1 border-2 w-80 bg-white">
         <input class="m-1 w-80" type="text" placeholder="Enter location..." />
