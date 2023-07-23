@@ -15,5 +15,6 @@ html {
 body {
   margin: 0 auto;
   background: #f8f8ff;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Inter", sans-serif;
+  color: white;
 }
