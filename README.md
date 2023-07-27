@@ -1,6 +1,9 @@
-# weather-app
+## 📁 Weather-App | Vue | Vite
 
-This template should help get you started developing with Vue 3 in Vite.
+### Description
+A simple weather app. Enter the city that interests you and see what the weather is like there.
+
+### Demo 
 
 ## Recommended IDE Setup
 
