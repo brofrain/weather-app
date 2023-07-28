@@ -7,6 +7,10 @@ const location = ref("");
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
+const vFocus = {
+  mounted: (el) => el.focus(),
+};
+
 const fetchWeatherData = async () => {
   try {
     const response = await axios.get(
@@ -33,6 +37,7 @@ const fetchWeatherData = async () => {
     >
       <h1 class="text-2xl font-bold p-4 tracking-wider">Weather App</h1>
       <input
+        v-focus
         @keyup.enter="fetchWeatherData"
         v-model.trim="location"
         class="flex rounded-xl border-2 w-1/4 bg-white text-black h-12 p-3 max-lg:w-1/2"
