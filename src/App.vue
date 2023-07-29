@@ -6,4 +6,6 @@ import WeatherDisplay from "./components/WeatherDisplay.vue";
   <WeatherDisplay />
 </template>
 
-<style></style>
+<style>
+/* fixme useless empty tag */
+</style>

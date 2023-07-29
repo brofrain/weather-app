@@ -30,3 +30,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+// fixme missing eslint / prettier scripts

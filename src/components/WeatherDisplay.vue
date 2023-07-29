@@ -4,11 +4,12 @@ import { ref } from "vue";
 
 const weatherData = ref(null);
 const location = ref("");
-const loading = ref(false);
+const loading = ref(false); // todo implementation can be simplified: https://vueuse.org/core/useAsyncState/#useasyncstate
 const error = ref("");
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
+// todo move this as global directive
 const vFocus = {
   mounted: (el) => el.focus(),
 };
@@ -32,6 +33,8 @@ const fetchWeatherData = async () => {
   } catch (e) {
     error.value = e;
   }
+
+  // fixme useless timeout
   setTimeout(() => {
     loading.value = false;
   }, 500);
@@ -40,9 +43,13 @@ const fetchWeatherData = async () => {
 
 <template>
   <header>
+    <!-- fixme camelCase class (change property casing in tailwind.config) -->
     <div
       class="bg-sectionImage bg-no-repeat bg-cover bg-top bg-fixed h-screen flex justify-start p-20 flex-col items-center max-md:p-2 max-md:justify-center"
     >
+      <!-- todo use i18n package -->
+      <!-- fixme useless header tag -->
+      <!-- fixme dont use repetitive margin for gaps - use `gap-X` instead -->
       <h1 class="text-2xl font-bold p-4 tracking-wider">Weather App</h1>
       <input
         v-focus
@@ -56,6 +63,7 @@ const fetchWeatherData = async () => {
         v-if="loading"
         class="m-5 p-10 flex flex-col items-center justify-between max-md:m-5 max-md:items-center"
       >
+        <!-- todo UnoCSS + Iconify instead of images -->
         <img
           class="w-30 rounded-full animate-spin"
           src="../assets/spinner.svg"
@@ -68,6 +76,7 @@ const fetchWeatherData = async () => {
         class="m-5 flex flex-col items-center justify-between max-md:m-5 max-md:items-center p-5"
       >
         <img class="w-12 m-2" src="../assets/warning.svg" alt="Warning Icon" />
+        <!-- fixme never show debugging info to end user. create custom error message (or a few) -->
         <p class="text-neutral-600 font-bold text-xl">{{ error }}</p>
       </div>
       <div
@@ -83,6 +92,7 @@ const fetchWeatherData = async () => {
         <p class="font-extralight text-4xl pb-2 max-md:text-2xl">
           {{ weatherData.weather[0].description }}
         </p>
+        <!-- fixme wrap this in div instead of repeating classes -->
         <p class="font-medium p-1 text-2xl">
           Pressure: {{ weatherData.main.pressure }} hPa
         </p>
